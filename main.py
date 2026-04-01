@@ -12,6 +12,7 @@ from rapor_modulu import (
 )
 
 import os
+import traceback
 
 
 def temizle():
@@ -64,31 +65,33 @@ def bekle():
     input("\nDevam etmek icin Enter'a bas...")
 
 
+def guvenli_calistir(fonksiyon):
+    try:
+        temizle()
+        fonksiyon()
+    except Exception as hata:
+        print("\nBir hata olustu:")
+        print(str(hata))
+        print("\nDetayli hata bilgisi:\n")
+        traceback.print_exc()
+    bekle()
+
+
 def proje_islemleri_calistir():
     while True:
         proje_menu_goster()
         secim = input("Seciminizi giriniz: ").strip()
 
         if secim == "1":
-            temizle()
-            proje_ekle()
-            bekle()
+            guvenli_calistir(proje_ekle)
         elif secim == "2":
-            temizle()
-            projeleri_listele()
-            bekle()
+            guvenli_calistir(projeleri_listele)
         elif secim == "3":
-            temizle()
-            proje_ara()
-            bekle()
+            guvenli_calistir(proje_ara)
         elif secim == "4":
-            temizle()
-            proje_duzenle()
-            bekle()
+            guvenli_calistir(proje_duzenle)
         elif secim == "5":
-            temizle()
-            proje_sil()
-            bekle()
+            guvenli_calistir(proje_sil)
         elif secim == "6":
             break
         else:
@@ -102,17 +105,11 @@ def raporlama_islemleri_calistir():
         secim = input("Seciminizi giriniz: ").strip()
 
         if secim == "1":
-            temizle()
-            istatistik_goster()
-            bekle()
+            guvenli_calistir(istatistik_goster)
         elif secim == "2":
-            temizle()
-            yuksek_tuketim_goster()
-            bekle()
+            guvenli_calistir(yuksek_tuketim_goster)
         elif secim == "3":
-            temizle()
-            filament_analizi_goster()
-            bekle()
+            guvenli_calistir(filament_analizi_goster)
         elif secim == "4":
             break
         else:
@@ -138,4 +135,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as hata:
+        print("\nProgram kritik bir hatayla durdu:")
+        print(str(hata))
+        print("\nDetayli hata bilgisi:\n")
+        traceback.print_exc()
+        input("\nCikmak icin Enter'a bas...")
