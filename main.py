@@ -20,14 +20,14 @@ def temizle():
 
 
 def kutu_yaz(baslik, secenekler, genislik=42):
-    print("+" + "-" * genislik + "+")
-    print("|" + baslik.center(genislik) + "|")
-    print("+" + "-" * genislik + "+")
+    print("╔" + "═" * genislik + "╗")
+    print("║" + baslik.center(genislik) + "║")
+    print("╚" + "═" * genislik + "╝")
 
     for secenek in secenekler:
-        print("| " + secenek.ljust(genislik - 1) + "|")
+        print("║ " + secenek.ljust(genislik - 1) + "║")
 
-    print("+" + "-" * genislik + "+")
+    print("╚" + "═" * genislik + "╝")
 
 
 def ana_menu_goster():
