@@ -18,7 +18,8 @@ PLA → 500 TL/kg
 ABS → 560 TL/kg
 PETG → 430 TL/kg
 <br>
-![alt text](image-1.png)
+![alt text](i<img width="364" height="142" alt="image" src="https://github.com/user-attachments/assets/45ac6871-aa2a-4ea2-8a7e-c348d730bb3d" />
+)
 <br>
 exe dosyasını çalıştırıca karşınıza burası gerlir ve burdan yapacağınız işlemi seçersiniz.
 <br>
